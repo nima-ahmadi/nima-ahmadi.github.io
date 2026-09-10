@@ -1,0 +1,532 @@
+<!DOCTYPE html><html dir="ltr" lang="en" class="overflow-y-scroll scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="canonical" href="https://nima-ahmadi.github.io/posts/claude-android-internal-settings/"><meta name="generator" content="Astro v7.2.2"><!-- Font --><style>@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/02154cca78ac33f2.woff") format("woff"), url("/_astro/fonts/478e42e4694872ef.ttf") format("truetype");font-display:swap;font-weight:300;font-style:italic;}@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/3a32a7a7a67f4f58.woff") format("woff"), url("/_astro/fonts/0863f4f6964aa89c.ttf") format("truetype");font-display:swap;font-weight:400;font-style:italic;}@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/a5c5808c25effec9.woff") format("woff"), url("/_astro/fonts/792eded6cb3f0350.ttf") format("truetype");font-display:swap;font-weight:500;font-style:italic;}@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/14314705006234cb.woff") format("woff"), url("/_astro/fonts/87d8fc1072d4917b.ttf") format("truetype");font-display:swap;font-weight:600;font-style:italic;}@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/c33265ba093eb291.woff") format("woff"), url("/_astro/fonts/ec883ed4db81a7d9.ttf") format("truetype");font-display:swap;font-weight:700;font-style:italic;}@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/c26ad40d3b1d9169.woff") format("woff"), url("/_astro/fonts/7a5ee0cfcde31b81.ttf") format("truetype");font-display:swap;font-weight:300;font-style:normal;}@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/87ca066ba5b2c7cf.woff") format("woff"), url("/_astro/fonts/f4e25dfe9d6152ec.ttf") format("truetype");font-display:swap;font-weight:400;font-style:normal;}@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/a9a0e80c053be3d5.woff") format("woff"), url("/_astro/fonts/a9df48ecd03749e4.ttf") format("truetype");font-display:swap;font-weight:500;font-style:normal;}@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/da468df88542c99b.woff") format("woff"), url("/_astro/fonts/90f9809471092714.ttf") format("truetype");font-display:swap;font-weight:600;font-style:normal;}@font-face{font-family:"Google Sans Code-1a30c214885cb404";src:url("/_astro/fonts/f914de358bc554f6.woff") format("woff"), url("/_astro/fonts/dbc9996f99c63e07.ttf") format("truetype");font-display:swap;font-weight:700;font-style:normal;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:300;font-style:italic;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:400;font-style:italic;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:500;font-style:italic;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:600;font-style:italic;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:700;font-style:italic;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:300;font-style:normal;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:400;font-style:normal;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:500;font-style:normal;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:600;font-style:normal;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}@font-face{font-family:"Google Sans Code-1a30c214885cb404 fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:700;font-style:normal;size-adjust:99.9837%;ascent-override:96.6157%;descent-override:28.6047%;}:root{--font-google-sans-code:"Google Sans Code-1a30c214885cb404","Google Sans Code-1a30c214885cb404 fallback: Courier New",monospace;}</style><style>@font-face{font-family:"Google Sans Flex-7e3bbe0d5aab8e78";src:url("/_astro/fonts/c007205b157f31c2.woff") format("woff"), url("/_astro/fonts/8dbb9a4ffa7fe621.ttf") format("truetype");font-display:swap;font-weight:400;font-style:normal;font-stretch:normal;}@font-face{font-family:"Google Sans Flex-7e3bbe0d5aab8e78";src:url("/_astro/fonts/96e01c190db98444.woff") format("woff"), url("/_astro/fonts/3e9b206f0b5d7678.ttf") format("truetype");font-display:swap;font-weight:600;font-style:normal;font-stretch:normal;}@font-face{font-family:"Google Sans Flex-7e3bbe0d5aab8e78";src:url("/_astro/fonts/fc94a4844415e57c.woff") format("woff"), url("/_astro/fonts/6ce11a692f69ab77.ttf") format("truetype");font-display:swap;font-weight:700;font-style:normal;font-stretch:normal;}@font-face{font-family:"Google Sans Flex-7e3bbe0d5aab8e78 fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:101.2784%;ascent-override:95.3806%;descent-override:28.239%;line-gap-override:0%;}@font-face{font-family:"Google Sans Flex-7e3bbe0d5aab8e78 fallback: Arial";src:local("Arial");font-display:swap;font-weight:600;font-style:normal;size-adjust:101.2784%;ascent-override:95.3806%;descent-override:28.239%;line-gap-override:0%;}@font-face{font-family:"Google Sans Flex-7e3bbe0d5aab8e78 fallback: Arial Bold";src:local("Arial Bold");font-display:swap;font-weight:700;font-style:normal;size-adjust:94.0663%;ascent-override:102.6935%;descent-override:30.4041%;line-gap-override:0%;}:root{--font-google-sans-flex:"Google Sans Flex-7e3bbe0d5aab8e78","Google Sans Flex-7e3bbe0d5aab8e78 fallback: Arial","Google Sans Flex-7e3bbe0d5aab8e78 fallback: Arial Bold",system-ui,sans-serif;}</style><!-- Primary meta --><title>Inside Claude&#39;s Android app: Finding the Internal Settings | Nima A.</title><meta name="title" content="Inside Claude's Android app: Finding the Internal Settings | Nima A."><meta name="description" content="A Boolean called `is_ant` led me to Claude’s internal Android settings, where I found some interesting debugging tools, feature flags, and developer controls."><meta name="author" content="Nima Ahmadi"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:site_name" content="Nima A."><meta property="og:title" content="Inside Claude's Android app: Finding the Internal Settings | Nima A."><meta property="og:description" content="A Boolean called `is_ant` led me to Claude’s internal Android settings, where I found some interesting debugging tools, feature flags, and developer controls."><meta property="og:url" content="https://nima-ahmadi.github.io/posts/claude-android-internal-settings/"><meta property="og:image" content="https://nima-ahmadi.github.io/posts/claude-android-internal-settings/index.png"><!-- Twitter / X --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://nima-ahmadi.github.io/posts/claude-android-internal-settings/"><meta property="twitter:title" content="Inside Claude's Android app: Finding the Internal Settings | Nima A."><meta property="twitter:description" content="A Boolean called `is_ant` led me to Claude’s internal Android settings, where I found some interesting debugging tools, feature flags, and developer controls."><meta property="twitter:image" content="https://nima-ahmadi.github.io/posts/claude-android-internal-settings/index.png"><!-- RSS autodiscovery --><link rel="alternate" type="application/rss+xml" title="Nima A." href="https://nima-ahmadi.github.io/rss.xml/"><!-- Filled at runtime by theme.ts to match the current background colour --><meta name="theme-color" content=""><!-- Extra head content injected by child layouts (e.g. JSON-LD, article meta) --><meta property="article:published_time" content="2026-09-10T04:00:00.000Z"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Inside Claude's Android app: Finding the Internal Settings | Nima A.","image":"https://nima-ahmadi.github.io/posts/claude-android-internal-settings/index.png","datePublished":"2026-09-10T04:00:00.000Z","author":[{"@type":"Person","name":"Nima Ahmadi","url":"https://nima-ahmadi.github.io/"}]}</script><!--
+      Inline FOUC-prevention script: sets data-theme on <html> before
+      the browser paints. Runs synchronously, no defer/async.
+    --><script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const theme = stored ?? (prefersDark ? "dark" : "light");
+        const root = document.firstElementChild;
+        root?.setAttribute("data-theme", theme);
+        root?.classList.toggle("dark", theme === "dark");
+        // Expose value so theme.ts can skip re-detection.
+        window.__theme = { value: theme };
+      })();
+    </script><link rel="stylesheet" href="/_astro/Footer.AGkFsKWW.css"></head><body class="bg-background font-app text-foreground selection:bg-accent/75 selection:text-accent-foreground flex min-h-svh flex-col"><a id="skip-to-content" href="#main-content" class="bg-background text-accent absolute inset-s-16 -top-full z-50 px-3 py-2 backdrop-blur-lg transition-all focus:top-4">Skip to content</a><header class="bg-background sticky top-0 z-40"><div class="app-layout py-4"><div class="flex items-center justify-between gap-4"><a href="/" class="flex shrink-0 items-end gap-2 text-2xl leading-none font-bold tracking-tight sm:text-3xl"><span class="mb-[0.12em] w-[1.98rem] shrink-0 sm:w-[2.34rem]" aria-hidden="true"><img src="/android-title.png" alt="" class="block h-auto w-full"></span><span>Nima A.</span></a><nav id="nav-menu" class="shrink-0 text-sm sm:text-base" aria-label="Primary navigation"><ul id="menu-items" class="[&amp;&gt;li+li]:before:text-muted-foreground flex items-center whitespace-nowrap [&amp;&gt;li+li]:before:mx-1.5 [&amp;&gt;li+li]:before:content-['|'] sm:[&amp;&gt;li+li]:before:mx-3"><li><a href="/" class="hover:text-accent">Home</a></li><li><a href="/posts/" class="hover:text-accent active-nav">Writing</a></li><li class="inline-flex items-center"><button id="theme-btn" class="hover:text-accent relative size-5" title="Toggle theme" aria-label="auto" aria-live="polite"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-1/2 left-1/2 size-5 -translate-1/2 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" /></svg><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="absolute top-1/2 left-1/2 size-5 -translate-1/2 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M14.828 14.828a4 4 0 1 0-5.656-5.656 4 4 0 0 0 5.656 5.656M6.343 17.657l-1.414 1.414M6.343 6.343 4.929 4.929M17.657 6.343l1.414-1.414M17.657 17.657l1.414 1.414M4 12H2M12 4V2M20 12h2M12 20v2" /></svg></button></li></ul></nav></div></div></header><script type="module">function e(){let e=document.getElementById(`skip-to-content`);e&&e.addEventListener(`click`,e=>{if(e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0)return;e.preventDefault();let t=document.getElementById(`main-content`);t&&(t.setAttribute(`tabindex`,`-1`),t.addEventListener(`blur`,()=>t.removeAttribute(`tabindex`),{once:!0}),t.focus(),t.scrollIntoView({behavior:`smooth`}))})}e(),document.addEventListener(`astro:after-swap`,e);</script><main id="main-content" class="app-layout"><header class="resume-box px-4 py-5 sm:px-5 sm:py-6"><h1 class="text-2xl font-semibold tracking-tight">Inside Claude&#39;s Android app: Finding the Internal Settings</h1><div class="text-muted-foreground mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs"><span>By Nima Ahmadi</span><span aria-hidden="true">-</span><div class="text-muted-foreground flex items-center gap-x-1"><time class="text-xs" datetime="2026-09-10T04:00:00.000Z">Sep 10, 2026</time></div></div></header><article id="article" class="mt-6 w-full px-3 sm:px-5 app-prose font-article max-w-none prose-code:font-app prose-pre:font-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"><p>I like taking apart Android apps that catch my attention to see how they work. It’s something I explored in my M.Sc. <a href="https://queensu.scholaris.ca/items/726231b4-3f89-4cf3-8a5c-86e10cba52c3">thesis</a>, too.</p>
+<p>With so much attention on Anthropic and Claude Code, I was curious about how their Android app was built. Anthropic has written a lot about Claude and Claude Code, but I couldn’t find much on their blog about the engineering behind the Android app. So I decided to unpack it and take a look myself.</p>
+<p>One of the first things that stood out to me was a SharedPreferences key called <code>is_ant</code>.</p>
+<p>Following that trail, I found a hidden internal settings menu used by Anthropic engineers to test, debug, and configure the app during development.</p>
+<p>This post follows that trail and explores what was inside.</p>
+<h2 id="what-survives-optimization">What survives optimization</h2>
+<p>Android release builds often use <a href="https://developer.android.com/topic/performance/app-optimization/enable-app-optimization">R8</a> or similar tools to shrink, optimize, and obfuscate code. R8 can remove unreachable code and shorten class, field, and method names. Those shorter names reduce the size of the app and also make decompiled code harder to follow. But even after that, a ton of useful information can survive this step.</p>
+<p>SharedPreferences keys are one of my favorite places to start. Unlike class and method names, these strings often remain readable. Tracing where a key is used often tells you what it controls.</p>
+<h2 id="following-the-ant-">Following the Ant 🐜</h2>
+<p>I found about 100 preference keys in the app. Several were interesting, but one immediately stood out: <code>is_ant</code>.</p>
+<p>The code that set <code>is_ant</code> to <code>true</code> checked whether the account’s email ended in <code>@anthropic.com</code>. This strongly suggested <code>is_ant</code> was a local indicator for Anthropic employee accounts.</p>
+<p>Here’s a Kotlin reconstruction of the logic:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627;overflow-x:auto;--file-name-offset:-0.75rem" tabindex="0" data-language="kotlin"><code><span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">fun</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> updateAccount</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(account: </span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">Account</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">) {</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    if</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (account.email.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">endsWith</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">&quot;@anthropic.com&quot;</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">)) {</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">        sharedPreferences.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">edit</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">()</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">            .</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">putBoolean</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">&quot;is_ant&quot;</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">, </span><span style="--shiki-light:#1976D2;--shiki-dark:#FF5874">true</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">            .</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">apply</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">()</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    // Remaining account setup...</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p>Next, I followed where <code>is_ant</code> was read. One of those reads controlled whether an entry appeared in the Settings screen. In the same simplified form:</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627;overflow-x:auto;--file-name-offset:-0.75rem" tabindex="0" data-language="kotlin"><code><span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">if</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (sharedPreferences.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">getBoolean</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">&quot;is_ant&quot;</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">, </span><span style="--shiki-light:#1976D2;--shiki-dark:#FF5874">false</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">)) {</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">    showInternalSettingsEntry</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">()</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p>Seems like we’ve found the internal settings entry point! The next question was whether the screen behind that entry had survived optimization too.</p>
+<h2 id="opening-the-internal-settings">Opening the internal settings</h2>
+<p>On a rooted test device, I could have changed the stored preference directly. I was exploring other parts of the app at the same time, though, so I decided to repackage it instead: unpack the APK, modify it, rebuild it, and sign the rebuilt APK so I could install it on my test device.</p>
+<p>I like to start by changing something obvious. It confirms that the rebuilt app actually contains my changes and makes it easy to tell apart from the original. In this case, I changed the “New chat” label. It worked!</p>
+<figure class="mx-auto my-8 max-w-sm"><img src="/_astro/modified-new-chat-label.Cry9vGNb_16S1qh.webp" srcset="/_astro/modified-new-chat-label.Cry9vGNb_Z1JKXd0.webp 480w, /_astro/modified-new-chat-label.Cry9vGNb_1zj76e.webp 720w, /_astro/modified-new-chat-label.Cry9vGNb_16S1qh.webp 1280w" alt="Claude with the modified New chat label" sizes="min(24rem, calc(100vw - 3.5rem))" loading="lazy" decoding="async" width="1280" height="2856" class="m-0 w-full"><figcaption class="mt-2 text-center">Changing a label to verify the repackaged app.</figcaption></figure>
+<p>Next, I changed the condition guarding the internal settings entry so it always passed. After rebuilding the app and opening Settings, the entry point appeared.</p>
+<figure class="mx-auto my-8 max-w-sm"><img src="/_astro/internal-settings-entry.DTBoRm-Z_1znqNq.webp" srcset="/_astro/internal-settings-entry.DTBoRm-Z_1Hhknx.webp 480w, /_astro/internal-settings-entry.DTBoRm-Z_Z2OI7a.webp 720w, /_astro/internal-settings-entry.DTBoRm-Z_1znqNq.webp 1280w" alt="Internal settings entry in Claude's settings" sizes="min(24rem, calc(100vw - 3.5rem))" loading="lazy" decoding="async" width="1280" height="2856" class="m-0 w-full"><figcaption class="mt-2 text-center">The internal settings entry after changing the local condition.</figcaption></figure>
+<p>Seeing the entry point didn’t necessarily mean the screen behind it had survived optimization. Luckily, in this case, it had!</p>
+<h2 id="a-tour-of-the-internal-settings">A tour of the Internal Settings</h2>
+<p>The menu had several tools for developing and testing the app. Here’s a slow scroll through the top level.</p>
+<figure class="mx-auto my-8 max-w-sm"><video autoplay muted loop controls playsinline poster="/_astro/internal-settings-tour-poster.DincbU91.jpg" preload="metadata" class="m-0 block h-auto w-full bg-black"><source src="/_astro/internal-settings-tour.n-AZBCDg.mp4" type="video/mp4">Your browser does not support HTML video.</video><figcaption class="mt-2 text-center">A tour of the top-level internal settings.</figcaption></figure>
+<h3 id="internal-settings-bubble">Internal Settings bubble</h3>
+<p>Enabling “Internal Settings bubble” added a floating, draggable Ant button that opened the internal settings. It snapped to the edges of the screen and was fun to move around.</p>
+<p>It’s a small convenience, but it saves a trip through Settings when you are repeatedly changing a debug option.</p>
+<figure class="mx-auto my-8 max-w-sm"><video autoplay muted loop controls playsinline poster="/_astro/internal-settings-bubble-poster.B7GcMEtv.jpg" preload="metadata" class="m-0 block h-auto w-full bg-black"><source src="/_astro/internal-settings-bubble.CeoTEFmP.mp4" type="video/mp4">Your browser does not support HTML video.</video><figcaption class="mt-2 text-center">The floating Ant shortcut to internal settings.</figcaption></figure>
+<h3 id="jank-overlay">Jank overlay</h3>
+<p>“Show jank overlay” displayed UI performance statistics. This was connected to JankStats and Android’s FrameMetrics API. Having those measurements available inside the app makes it easier to investigate a slow interaction while reproducing it.</p>
+<figure class="mx-auto my-8 max-w-sm"><video autoplay muted loop controls playsinline poster="/_astro/jank-overlay-poster.cwEuD0fL.jpg" preload="metadata" class="m-0 block h-auto w-full bg-black"><source src="/_astro/jank-overlay.WF4r87Kx.mp4" type="video/mp4">Your browser does not support HTML video.</video><figcaption class="mt-2 text-center">The jank overlay during an interaction.</figcaption></figure>
+<h3 id="age-signals">Age signals</h3>
+<p>“Age Signal override” exposed controls for simulating different age signals.</p>
+<figure class="mx-auto my-8 max-w-sm"><img src="/_astro/age-signal-override.DBymAcEJ_ZTKXWj.webp" srcset="/_astro/age-signal-override.DBymAcEJ_Z1p61N0.webp 480w, /_astro/age-signal-override.DBymAcEJ_Z1pIzRC.webp 720w, /_astro/age-signal-override.DBymAcEJ_ZTKXWj.webp 1280w" alt="Age Signal override controls" sizes="min(24rem, calc(100vw - 3.5rem))" loading="lazy" decoding="async" width="1280" height="2856" class="m-0 w-full"><figcaption class="mt-2 text-center">Overriding age signals for testing.</figcaption></figure>
+<h3 id="push-notifications">Push notifications</h3>
+<p>There was also a dedicated screen for testing push notifications.</p>
+<figure class="mx-auto my-8 max-w-sm"><img src="/_astro/push-notification-testing.CeiuO9Gq_aHXWa.webp" srcset="/_astro/push-notification-testing.CeiuO9Gq_ZzCNUt.webp 480w, /_astro/push-notification-testing.CeiuO9Gq_1Be7r1.webp 720w, /_astro/push-notification-testing.CeiuO9Gq_aHXWa.webp 1280w" alt="Internal push notification testing screen" sizes="min(24rem, calc(100vw - 3.5rem))" loading="lazy" decoding="async" width="1280" height="2856" class="m-0 w-full"><figcaption class="mt-2 text-center">A dedicated screen for testing push notifications.</figcaption></figure>
+<h3 id="feature-flag-overrides">Feature flag overrides</h3>
+<p>I found GrowthBook integration in the app, along with an “Override feature flag” screen for changing local flag values and configurations.</p>
+<p>This was one of the more interesting screens to explore. The feature flags can provide clues about experiments and possible future features. The list deserves a closer look in a separate post.</p>
+<figure class="mx-auto my-8 max-w-sm"><video autoplay muted loop controls playsinline poster="/_astro/feature-flag-overrides-poster.CGGgkAdd.jpg" preload="metadata" class="m-0 block h-auto w-full bg-black"><source src="/_astro/feature-flag-overrides.8ng3oWxN.mp4" type="video/mp4">Your browser does not support HTML video.</video><figcaption class="mt-2 text-center">Browsing the available feature flag overrides.</figcaption></figure>
+<h3 id="simulating-unreliable-networks">Simulating unreliable networks</h3>
+<p>The “Network Simulation” screen offered controls for adding latency and forcing request, upload, and timeout failures.</p>
+<figure class="mx-auto my-8 max-w-sm"><img src="/_astro/network-simulation.7I1ItACW_Z1cnCDn.webp" srcset="/_astro/network-simulation.7I1ItACW_Z17k8yt.webp 480w, /_astro/network-simulation.7I1ItACW_pFOun.webp 720w, /_astro/network-simulation.7I1ItACW_Z1cnCDn.webp 1280w" alt="Network Simulation controls for latency and failures" sizes="min(24rem, calc(100vw - 3.5rem))" loading="lazy" decoding="async" width="1280" height="2856" class="m-0 w-full"><figcaption class="mt-2 text-center">Simulating unreliable network conditions.</figcaption></figure>
+<h3 id="switching-the-api-endpoint">Switching the API endpoint</h3>
+<p>“Select API Endpoint” offered Production, Staging, Localhost, and a custom backend option.</p>
+<figure class="mx-auto my-8 max-w-none"><img src="/_astro/api-endpoint-selector.C5t7WY3j_2qs7hX.webp" srcset="/_astro/api-endpoint-selector.C5t7WY3j_2wpS7T.webp 480w, /_astro/api-endpoint-selector.C5t7WY3j_Z16EVy5.webp 720w, /_astro/api-endpoint-selector.C5t7WY3j_2qs7hX.webp 2560w" alt="API endpoint selector showing Production, Staging, Localhost, and Custom options" sizes="min(45rem, calc(100vw - 3.5rem))" loading="lazy" decoding="async" width="2560" height="2856" class="m-0 w-full"><figcaption class="mt-2 text-center">Switching the app&#39;s API endpoint.</figcaption></figure>
+<p>The staging hostname was publicly reachable, but Cloudflare Access sat in front of it and required authentication.</p>
+<figure class="mx-auto my-8 max-w-lg"><img src="/_astro/staging-cloudflare-access.4DGjN_YH_Z2tmV91.webp" srcset="/_astro/staging-cloudflare-access.4DGjN_YH_Z2oKXY4.webp 480w, /_astro/staging-cloudflare-access.4DGjN_YH_ZTnj2W.webp 720w, /_astro/staging-cloudflare-access.4DGjN_YH_Z2tmV91.webp 1662w" alt="Cloudflare Access login gate for Claude's staging environment" sizes="min(32rem, calc(100vw - 3.5rem))" loading="lazy" decoding="async" width="1662" height="1730" class="m-0 w-full"><figcaption class="mt-2 text-center">The staging environment is gated by Cloudflare Access.</figcaption></figure>
+<p>There’s more here than I could fit into one post, especially in the feature flag overrides. I’ll save that rabbit hole for another time. For now, these screens offer a small glimpse into some of the tooling used by Anthropic’s Android team.</p></article><div id="btt-btn-container" class="fixed inset-e-4 bottom-8 z-50 md:sticky md:inset-e-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"><button data-button="back-to-top" class="group bg-background relative px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"><span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block rotate-90 md:hidden" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M5 12h14M5 12l6 6M5 12l6-6" /></svg><span class="group-hover:text-accent sr-only text-sm md:not-sr-only"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="inline-block size-4" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" /><path d="M12 5v14M16 9l-4-4M8 9l4-4" /></svg>Back to top</span></button></div><script data-astro-rerun>
+  window.__backToTopController?.abort();
+  const backToTopController = new AbortController();
+  const backToTopSignal = backToTopController.signal;
+  window.__backToTopController = backToTopController;
+
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    backToTopBtn.addEventListener(
+      "click",
+      () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      },
+      { signal: backToTopSignal }
+    );
+
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      },
+      { signal: backToTopSignal }
+    );
+  }
+  backToTop();
+
+  document.addEventListener(
+    "astro:before-swap",
+    () => backToTopController.abort(),
+    { once: true, signal: backToTopSignal }
+  );
+</script><nav aria-label="Back to home" class="resume-rule mt-8 border-t pt-4"><a href="/" class="resume-link inline-block">← Back to Home</a></nav></main><footer class="app-layout mt-6"><div class="resume-rule text-muted-foreground flex items-center border-t py-6 text-sm"><span>&#169; 2026 Nima Ahmadi</span></div></footer><script type="module">var e=`theme`,t=`light`,n=`dark`;function r(){return localStorage.getItem(e)||(window.matchMedia(`(prefers-color-scheme: dark)`).matches?n:t)}var i=window.__theme?.value??r();function a(){localStorage.setItem(e,i),o()}function o(){let e=document.firstElementChild;e?.setAttribute(`data-theme`,i),e?.classList.toggle(`dark`,i===n),document.querySelector(`#theme-btn`)?.setAttribute(`aria-label`,i);let t=window.getComputedStyle(document.body).backgroundColor;document.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}function s(){o(),document.querySelector(`#theme-btn`)?.addEventListener(`click`,()=>{i=i===t?n:t,a()})}s(),document.addEventListener(`astro:after-swap`,s),document.addEventListener(`astro:before-swap`,e=>{let t=document.querySelector(`meta[name='theme-color']`)?.getAttribute(`content`);t&&e.newDocument.querySelector(`meta[name='theme-color']`)?.setAttribute(`content`,t)}),window.matchMedia(`(prefers-color-scheme: dark)`).addEventListener(`change`,({matches:e})=>{i=e?n:t,a()});</script><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;90bd31f559d44cb6887a6558af90f5fe&quot;}"></script><!-- End Cloudflare Web Analytics --></body></html><script data-astro-rerun>
+  window.__postPageController?.abort();
+  const postPageController = new AbortController();
+  const postPageSignal = postPageController.signal;
+  window.__postPageController = postPageController;
+
+  function createProgressBar() {
+    document.querySelector(".progress-container")?.remove();
+
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-50 h-1 w-full bg-background";
+
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    progressContainer.appendChild(progressBar);
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  function updateScrollProgress() {
+    document.addEventListener(
+      "scroll",
+      () => {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (document) {
+          const myBar = document.getElementById("myBar");
+          if (myBar) {
+            myBar.style.width = scrolled + "%";
+          }
+        }
+      },
+      { signal: postPageSignal }
+    );
+  }
+  updateScrollProgress();
+
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Accessible image lightbox for article images. */
+  function initLightbox() {
+    const article = document.getElementById("article");
+    if (!article) return;
+
+    const prefersReducedMotion = () =>
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let overlay = null;
+    let lastFocused = null;
+
+    // Defer attribute mutations so they don't push the LCP timestamp.
+    // Event listeners below use delegation and don't need the attributes to exist yet.
+    requestAnimationFrame(() => {
+      const images = Array.from(article.querySelectorAll("img"));
+      for (const image of images) {
+        if (image.closest("a")) continue;
+        image.setAttribute("role", "button");
+        image.setAttribute("tabindex", "0");
+        image.setAttribute("aria-haspopup", "dialog");
+        image.setAttribute(
+          "aria-label",
+          image.alt ? `Zoom image: ${image.alt}` : "Zoom image"
+        );
+      }
+    });
+
+    function open(src, alt, trigger) {
+      if (overlay) return;
+      lastFocused = trigger ?? document.activeElement;
+
+      overlay = document.createElement("div");
+      overlay.setAttribute("role", "dialog");
+      overlay.setAttribute("aria-modal", "true");
+      overlay.setAttribute(
+        "aria-label",
+        alt ? `Image preview: ${alt}` : "Image preview"
+      );
+      overlay.className =
+        "fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-200 motion-reduce:transition-none";
+
+      const closeButton = document.createElement("button");
+      closeButton.type = "button";
+      closeButton.setAttribute("aria-label", "Close image preview");
+      closeButton.className =
+        "absolute end-4 top-4 rounded p-2 text-3xl leading-none text-white";
+      closeButton.innerHTML = "&#10005;";
+      closeButton.addEventListener("click", close);
+
+      const image = document.createElement("img");
+      image.src = src;
+      image.alt = "";
+      image.className =
+        "max-h-[90dvh] max-w-[90dvw] cursor-default object-contain";
+
+      overlay.append(closeButton, image);
+      overlay.addEventListener("click", e => {
+        if (e.target === overlay && currentScale <= 1) close();
+      });
+
+      let currentScale = 1;
+      let translateX = 0;
+      let translateY = 0;
+      let initialDist = 0;
+      let initialScale = 1;
+      let panStartX = 0;
+      let panStartY = 0;
+      let panStartTranslateX = 0;
+      let panStartTranslateY = 0;
+      let lastTapTime = 0;
+
+      function applyTransform() {
+        image.style.transform = `scale(${currentScale}) translate(${translateX}px, ${translateY}px)`;
+      }
+
+      function resetTransform() {
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+        image.style.transform = "";
+      }
+
+      overlay.addEventListener(
+        "touchstart",
+        e => {
+          const t = e.touches;
+          if (t.length === 2) {
+            initialDist = Math.hypot(
+              t[1].clientX - t[0].clientX,
+              t[1].clientY - t[0].clientY
+            );
+            initialScale = currentScale;
+          } else if (t.length === 1) {
+            const now = Date.now();
+            if (now - lastTapTime < 300) {
+              e.preventDefault();
+              if (currentScale > 1) {
+                resetTransform();
+              } else {
+                currentScale = 2;
+                translateX = 0;
+                translateY = 0;
+                applyTransform();
+              }
+              lastTapTime = 0;
+              panStartX = t[0].clientX;
+              panStartY = t[0].clientY;
+              panStartTranslateX = translateX;
+              panStartTranslateY = translateY;
+            } else {
+              lastTapTime = now;
+              if (currentScale > 1) {
+                panStartX = t[0].clientX;
+                panStartY = t[0].clientY;
+                panStartTranslateX = translateX;
+                panStartTranslateY = translateY;
+              }
+            }
+          }
+        },
+        { passive: false }
+      );
+
+      overlay.addEventListener(
+        "touchmove",
+        e => {
+          const t = e.touches;
+          if (t.length === 2) {
+            e.preventDefault();
+            const dist = Math.hypot(
+              t[1].clientX - t[0].clientX,
+              t[1].clientY - t[0].clientY
+            );
+            currentScale = Math.min(
+              4,
+              Math.max(1, initialScale * (dist / initialDist))
+            );
+            applyTransform();
+          } else if (t.length === 1) {
+            if (currentScale > 1) {
+              e.preventDefault();
+              translateX =
+                panStartTranslateX + (t[0].clientX - panStartX) / currentScale;
+              translateY =
+                panStartTranslateY + (t[0].clientY - panStartY) / currentScale;
+              const maxX = Math.max(
+                0,
+                (image.clientWidth - overlay.clientWidth / currentScale) / 2
+              );
+              const maxY = Math.max(
+                0,
+                (image.clientHeight - overlay.clientHeight / currentScale) / 2
+              );
+              translateX = Math.min(maxX, Math.max(-maxX, translateX));
+              translateY = Math.min(maxY, Math.max(-maxY, translateY));
+              applyTransform();
+            } else {
+              e.preventDefault();
+            }
+          }
+        },
+        { passive: false }
+      );
+
+      overlay.addEventListener("touchend", e => {
+        if (e.touches.length === 0 && currentScale <= 1.05) {
+          resetTransform();
+        }
+      });
+
+      overlay.addEventListener("touchcancel", e => {
+        if (e.touches.length === 0 && currentScale <= 1.05) {
+          resetTransform();
+        }
+      });
+
+      document.body.appendChild(overlay);
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", onKeyDown);
+      window.__closeLightbox = close;
+
+      requestAnimationFrame(() => overlay?.classList.add("opacity-100"));
+      closeButton.focus();
+    }
+
+    function close() {
+      if (!overlay) return;
+      const el = overlay;
+      overlay = null;
+      window.__closeLightbox = null;
+
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+      lastFocused?.focus();
+      lastFocused = null;
+
+      if (prefersReducedMotion()) {
+        el.remove();
+        return;
+      }
+      const remove = () => el.remove();
+      el.addEventListener("transitionend", remove, { once: true });
+      setTimeout(remove, 250); // fallback in case transitionend never fires
+      el.classList.remove("opacity-100");
+    }
+
+    function onKeyDown(e) {
+      if (e.key === "Escape") {
+        close();
+      } else if (e.key === "Tab") {
+        trapFocus(e);
+      }
+    }
+
+    // Keep keyboard focus inside the open dialog.
+    function trapFocus(e) {
+      if (!overlay) return;
+      const focusables = overlay.querySelectorAll(
+        'a[href], button, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    function triggerFromEvent(e) {
+      const image = e.target.closest("img");
+      if (!image || !article.contains(image) || image.closest("a")) return null;
+      return image;
+    }
+
+    function activate(image) {
+      open(image.currentSrc || image.src, image.alt, image);
+    }
+
+    article.addEventListener("click", e => {
+      const image = triggerFromEvent(e);
+      if (!image) return;
+      e.preventDefault();
+      activate(image);
+    });
+
+    article.addEventListener("keydown", e => {
+      if (e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+      const image = triggerFromEvent(e);
+      if (!image) return;
+      e.preventDefault();
+      activate(image);
+    });
+  }
+  initLightbox();
+
+  if (!window.__lightboxSwapBound) {
+    window.__lightboxSwapBound = true;
+    document.addEventListener("astro:before-swap", () =>
+      window.__closeLightbox?.()
+    );
+  }
+
+  document.addEventListener(
+    "astro:after-swap",
+    () => window.scrollTo({ left: 0, top: 0, behavior: "instant" }),
+    { signal: postPageSignal }
+  );
+
+  document.addEventListener(
+    "astro:before-swap",
+    () => postPageController.abort(),
+    { once: true, signal: postPageSignal }
+  );
+</script>
